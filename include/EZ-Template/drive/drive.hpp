@@ -9,6 +9,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #include <functional>
 #include <iostream>
 #include <tuple>
+#include <cmath>
 
 #include "EZ-Template/PID.hpp"
 #include "EZ-Template/util.hpp"

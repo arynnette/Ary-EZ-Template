@@ -176,7 +176,7 @@ void Drive::set_defaults() {
 }
 
 double Drive::get_tick_per_inch() {
-  CIRCUMFERENCE = WHEEL_DIAMETER * M_PI;
+  CIRCUMFERENCE = WHEEL_DIAMETER * 3.141;
 
   if (is_tracker == DRIVE_ADI_ENCODER || is_tracker == DRIVE_ROTATION)
     TICK_PER_REV = CARTRIDGE * RATIO;
