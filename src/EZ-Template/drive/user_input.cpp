@@ -242,7 +242,7 @@ void Drive::arcade_standard(e_type stick_type) {
 }
 
 // Arcade control flipped
-void Drive::arcade_flipped(e_type stick_type) {
+void Drive::arcade_flipped(e_type stick_type, bool useLeftJoystick) {
   is_tank = false;
   reset_drive_sensors_opcontrol();
 
@@ -257,8 +257,11 @@ void Drive::arcade_flipped(e_type stick_type) {
     turn_stick = left_curve_function(master.get_analog(ANALOG_LEFT_X));
   } else if (stick_type == SINGLE) {
     // Put the joysticks through the curve function
-    fwd_stick = right_curve_function(master.get_analog(ANALOG_RIGHT_Y));
-    turn_stick = left_curve_function(master.get_analog(ANALOG_RIGHT_X));
+    // fwd_stick = right_curve_function(master.get_analog(ANALOG_RIGHT_Y));
+    // turn_stick = left_curve_function(master.get_analog(ANALOG_RIGHT_X));
+
+    fwd_stick = right_curve_function(master.get_analog((useLeftJoystick) ? ANALOG_LEFT_Y : ANALOG_RIGHT_Y));
+    turn_stick = left_curve_function(master.get_analog((useLeftJoystick) ? ANALOG_LEFT_X : ANALOG_RIGHT_X));
   }
 
   // Set robot to l_stick and r_stick, check joystick threshold, set active brake

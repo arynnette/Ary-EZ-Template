@@ -232,7 +232,7 @@ class Drive {
    * \param stick_type
    *        ez::SINGLE or ez::SPLIT control
    */
-  void arcade_flipped(e_type stick_type);
+  void arcade_flipped(e_type stick_type, bool useLeftJoystick);
 
   /**
    * Initializes left and right curves with the SD card, reccomended to run in initialize().
